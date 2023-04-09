@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=MuseoModerno&family=Righteous&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body style="overflow: hidden;">
+<header class="header">
+<h1 id="title">Welcome to DedSec</h1>
+
+<p id="description">
+One of our teammate able to dump a wellknown social media platform users database.<br><span class="clue"><b>Your task is find out userXYZ password</b></span>
+</p>
+</header>
+<div id="anim"></div>
+<div id="anim2"></div>
+<div id="anim3"></div>
+<div id="anim4"></div>
+<form id="survey-form">
+    <div class="form-group">
+      <p>
+        Are You Ready?
+        <span class="clue"><a href="users.db" style="text-decoration: none; color: var(--color-green);" download>(Click Here)</a></span>
+      </p>
+    <div class="form-group">
+      <label  for="password">Enter userXYZ's password </label>
+      <input type="password" name="password" class="form-control" placeholder="Password" required>
+    </div>
+      <br>
+      <button type="submit" id="submit" class="submit-button">
+        Submit
+      </button>
+    </div>
+</form>
+  <script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', 'passCheck.php');
+      xhr.addEventListener('load', () => {
+        alert(xhr.responseText.trim());
+        form.reset();
+      });
+      xhr.addEventListener('error', () => {
+        console.error('An error occurred');
+      });
+      xhr.send(formData);
+    });
+
+    </script>
+
+</body>
+</html>

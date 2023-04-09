@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./components/style.css">
+
+</head>
+<body>
+
+	
+	<div class="options" style="justify-content: center; text-align: center; margin-top: -65px;">
+		<div>
+			<h2 style="color: aliceblue;">Task :</h2>
+			<p style="color: wheat;">Retrieve Secret Information by Exploiting CORS</p>
+			<p style="color: wheat;">Hint: <a style="color: wheat; text-decoration: none;" href="http://hrishikesh7665.web.app">http://hrishikesh7665.web.app</a></p><br>
+		</div>
+		<input type="radio" name="option" id="green" />
+		<label for="green" name="try_text" style="--color: green">Try!!</label>
+		<div>
+			<br><p style="color: wheat;" id="msg"></p>
+		</div>
+	</div>
+	
+
+<canvas id="particles"></canvas>
+  <script  src="./components/script.js"></script>
+  <script>
+	const xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+	  if (xhr.readyState === 4 && xhr.status === 200) {
+		// alert(xhr.responseText.trim());
+		document.getElementById('msg').innerText = xhr.responseText.trim();
+		document.getElementById("green").checked = false;
+		document.getElementsByName("try_text")[0].innerText="Try Again!!";
+	  }
+	};
+	
+	document.getElementById("green").addEventListener("click", function() {
+	  xhr.open('POST', 'reqHandel.php');
+	  xhr.send();
+	});
+  </script>
+  
+  <input type="radio" name="option" id="green" />
+  
+
+</body>
+</html>

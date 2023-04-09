@@ -1,0 +1,153 @@
+:root {
+  --color-green: #00ff00;
+  --color-black: #000000;
+}
+body {
+    text-align: center;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--color-green);
+    margin: 0;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background: var(--color-black);
+    background-image: linear-gradient( rgba(0, 0, 0,0.7), rgba(14, 158, 17, 0.4), rgba(12, 232, 170, 0.3) ), url(bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.header {
+    padding: 0 0.625rem;
+    margin: 1.5rem;
+}
+.form-group{
+    display: block;
+    text-align: left;
+}
+.form-control {
+    display: block;
+    text-align: left;
+    width: 50%;
+    height: 1.5rem;
+    padding:0.25rem 0.75rem;
+    color: #00ff00;
+    background-color: #000;
+    border: 1px solid #006B00;
+    border-radius: 0.2rem;
+}
+
+form {
+    display: inline-block;
+    background: rgba(0,0,0,0.7);
+    padding: 2rem 5rem 3rem 5rem;
+}
+button{
+  background-color: var(--color-green); 
+  text-align: center;
+  border: 3px solid green;
+  border-radius: 15%;
+}
+input, textarea{
+    color: var(--color-green);
+    background-color: var(--color-black);
+    border: 1px solid #006B00;
+    border-radius: 0.2rem;;
+}
+.clue{
+  font-size: 1rem;
+  position: relative;
+  /* left: 15px; */
+}
+.clue:hover{
+  font-size: 1.1rem;
+}
+#anim{
+    z-index: -1;
+    animation-name: zoom;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    height: 10px;
+    width: 10px;
+    background: var(--color-green);
+    filter: blur(2px);
+    border-radius: 50%;
+    position: relative;
+}
+#anim2{
+    z-index: -1;
+    animation-name: zoom;
+    animation-duration: 11s;
+    animation-iteration-count: infinite;
+    height: 10px;
+    width: 10px;
+    background: var(--color-green);
+    filter: blur(2px);
+    border-radius: 50%;
+    position: relative;
+}
+#anim3{
+    z-index: -1;
+    animation-name: zoom;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    height: 10px;
+    width: 10px;
+    background: var(--color-green);
+    filter: blur(2px);
+    border-radius: 50%;
+    position: relative;
+}
+#anim4{
+    z-index: -1;
+    animation-name: zoom;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    height: 10px;
+    width: 10px;
+    background: var(--color-green);
+    filter: blur(2px);
+    border-radius: 50%;
+    position: relative;
+}
+@keyframes zoom {
+    0% {
+        left: 0;
+        top: 0px;
+    }
+     15% {
+        left: 50%;
+        top: 300px;
+    }
+  20% {
+     left: 15%;
+    top: 600px;
+  }
+    50% {
+        left: 90%;
+        top: 400px;
+    }
+  60% {
+    left: 75%;
+        top: -100px;
+  }
+  80% {
+     left: 50%;
+      top: 150px;
+  }
+    100% {
+        left: 0;
+      top: 0px;
+    }
+}
+::placeholder{
+  color: var(--color-green);
+}

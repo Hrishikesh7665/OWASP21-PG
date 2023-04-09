@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript">
+    function XMLFunction(){
+        let name = document.getElementById('name').value;
+        let email = document.getElementById('email').value;
+        if (name.length > 2 && email.length > 4 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            let xml = '' +
+                '<?xml version="1.0" encoding="UTF-8"?>' +
+                '<root>' +
+                '<name>' + name + '</name>' +
+                '<email>' + email + '</email>' +
+                '</root>';
+        
+            let xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if(xmlhttp.readyState == 4){
+                    console.log(xmlhttp.readyState);
+                    console.log(xmlhttp.responseText);
+                    document.getElementById('errorMessage').innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("POST","requestHandler.php",true);
+            xmlhttp.send(xml);
+        }else{
+            document.getElementById('errorMessage').innerHTML = 'Invalid Username/Email';
+        }
+    };
+</script>
+    
+<style type="text/css">
+/* Add whatever you need to your CSS reset */
+html, body, h1, form, fieldset, input {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+body { font-family: Helvetica, Arial, sans-serif; font-size: 12px; }
+#registration {
+    color: #fff;
+    background: #2d2d2d;
+    background: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0, rgb(60,60,60)),
+    color-stop(0.74, rgb(43,43,43)),
+    color-stop(1, rgb(60,60,60))
+    );
+    background: -moz-linear-gradient(
+    center bottom,
+    rgb(60,60,60) 0%,
+    rgb(43,43,43) 74%,
+    rgb(60,60,60) 100%
+    );
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    width: 430px;
+}
+#registration a {
+    color: rgb(105, 102, 102);
+    text-shadow: 0px -1px 0px #000;
+}
+
+#registration fieldset {
+    padding: 20px;
+}
+
+input.text {
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border:solid 1px #444;
+    font-size: 14px;
+    width: 90%;
+    padding: 7px 8px 7px 30px;
+    -moz-box-shadow: 0px 1px 0px #777;
+    -webkit-box-shadow: 0px 1px 0px #777;
+    color:#333;
+    text-shadow:0px 1px 0px #FFF;
+}
+
+#registration h2 {
+    color: #fff;
+    text-shadow: 0px -1px 0px #000;
+    border-bottom: solid #181818 1px;
+    -moz-box-shadow: 0px 1px 0px #3a3a3a;
+    text-align: center;
+    padding: 18px;
+    margin: 0px;
+    font-weight: normal;
+    font-size: 24px;
+    font-family: Lucida Grande, Helvetica, Arial, sans-serif;
+}
+
+#errorMessage {
+    color: red;
+    font-style: italic;
+    font-size: 1.5 em;
+}
+
+
+
+#registration p {
+    position: relative;
+}
+
+fieldset label.infield /* .infield label added by JS */ {
+    color: #333;
+    text-shadow: 0px 1px 0px #fff;
+    position: absolute;
+    text-align: left;
+    top: 3px !important;
+    left: 35px !important;
+    line-height: 29px;
+}
+
+
+.round,
+.svg,
+.highlight {
+		max-width: 960px;
+		margin:0 auto;
+}
+
+.round a {
+		color: crimson;
+}
+
+.round .button {
+		display: inline-block;
+		width: 130px;
+		height: 40px;
+		line-height: 40px;
+		margin: 20px;
+		position: relative;
+		overflow: hidden;
+		border: 2px solid crimson;
+		transition: color .5s;
+}
+
+.round .button:before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		background: crimson;
+		height: 150px;
+		width: 200px;
+		border-radius: 50%;
+}
+
+.round .button:hover {
+		color: #fff;
+}
+
+.round .button:nth-child(1):before {
+		top: 100%;
+		left: 100%;
+		transition: all .7s;
+}
+
+.round .button:nth-child(1):hover:before {
+		top: -30px;
+		left: -30px;
+}
+
+.round .button:nth-child(2):before {
+		left: -30px;
+		bottom: 100%;
+		transition: all .7s;
+}
+
+.round .button:nth-child(2):hover:before {
+		bottom: -50px;
+}
+
+.round .button:nth-child(3):before {
+		top: 0;
+		left: -200%;
+		transition: all .7s;
+}
+
+.round .button:nth-child(3):hover:before {
+		top: -30px;
+		left: -30px;
+}
+
+
+/* THE SVG HOVER EFFECTS */
+.svg .button {
+		text-decoration: none;
+		color: #fff;
+		position: relative;
+		display: inline-block;
+		width: 130px;
+		height: 40px;
+		margin: 20px;
+		overflow: hidden;
+}
+
+.svg .button:nth-child(3) {
+		overflow: visible;
+		position: relative;
+		top: -20px;
+}
+
+.svg .button rect {
+		position: absolute;
+		top: 0;
+		left: 0;
+		stroke-width: 4px;
+		stroke-dashoffset: 400px;
+		stroke: olivedrab;
+}
+
+.svg .button span {
+		color: olivedrab;
+		width: 130px;
+		height: 40px;
+		display: inline-block;
+		text-align: center;
+		position: absolute;
+		left: 0;
+		top: 0;
+		line-height: 40px;
+		transition: all .2s linear;
+}
+
+.svg .button span:hover {
+		color: #fff;
+		background: olivedrab;
+		transition: all 1s cubic-bezier(1.25s 0, 1.15, 1, 1);
+		transition-delay: .5s;
+}
+
+.svg .button:nth-child(1):hover rect {
+		animation: draw1 .75s linear forwards;
+}
+
+.svg .button:nth-child(2):hover rect {
+		animation: draw2 .75s linear forwards;
+}
+
+.svg .button:nth-child(3) span {
+		border: 3px solid olivedrab;
+		transform: scale(1);
+		width: 125px;
+		height: 35px;
+		line-height: 37px;
+}
+
+.svg .button:nth-child(3):hover span {
+		animation: draw3 .75s linear forwards;
+}
+
+@keyframes draw1 {
+		0% {
+				stroke-dasharray: 300;
+				stroke-dashoffset: 700;
+				stroke-width: 4px;
+		}
+		75% {
+				stroke-dasharray: 900;
+				stroke-width: 1px;
+		}
+		100% {
+				stroke-dasharray: 900;
+				stroke-width: 1px;
+		}
+}
+
+@keyframes draw2 {
+		0% {
+				stroke-dashoffset: 350;
+				stroke-dasharray: 350;
+		}
+		50% {
+				stroke-dashoffset: 600;
+				stroke-dasharray: 400;
+				stroke-width: 1px;
+		}
+		100% {
+				stroke-dashoffset: 900;
+				stroke-dasharray: 400;
+				stroke-width: 1px;
+		}
+}
+
+@keyframes draw3 {
+		100% {
+				transform: scale(1.35);
+		}
+}
+
+
+/* HIGHLIGHT */
+.highlight .button {
+		display: inline-block;
+		color: #fff;
+		background: #d2cec1;
+		margin: 20px;
+		width: 130px;
+		height: 40px;
+		line-height: 40px;
+		border-radius: 10px;
+		position: relative;
+		overflow: hidden;
+}
+
+.highlight .button:before {
+		content: "";
+		position: absolute;
+		top: -30px;
+		left: -80px;
+		height: 100px;
+		width: 70px;
+		background: rgba(255, 255, 255, .7);
+		transform: rotate(20deg);
+}
+
+.highlight .button:hover:before {
+		left: 150px;
+		transition: all .5s;
+}
+/* .highlight {margin-bottom:100px;} */
+
+</style>
+</head>
+<body>
+<center>
+    <br/>
+    <h2>Task:<br>Perform XXE</h2>
+    <br/>
+    <div id="registration">
+        <h2>Check User Exists or Not</h2>
+        <div id="RegisterUserForm">
+            <fieldset>
+                <p>
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" class="text"
+                value="" />
+                </p>
+
+                <p>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" class="text"
+                value="" />
+                </p>
+
+                <div class="highlight">
+                    <a class="button" id="registerNew"
+                    onclick="XMLFunction()" style="font-size: large; cursor: pointer;">Check</a>
+            </div>
+            </fieldset>
+        </div>
+    </div>
+    <div id="errorMessage" color="red">
+    </div>
+</center>
+</body>
+</html>
+

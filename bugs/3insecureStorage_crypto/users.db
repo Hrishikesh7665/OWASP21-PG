@@ -1,0 +1,40 @@
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+CREATE TABLE `login` (
+  `no` int(11) NOT NULL,
+  `username` text NOT NULL,
+  `password` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `login` (`no`, `username`, `password`) VALUES
+(2, 'c2hhbWE=', '28f08368816f366c2dab8b43a909d94a'),
+(3, 'c2hhbWFu', '36a6c359fde7de3e1f0f1686c7eb4604'),
+(4, 'c2hhbWFuaXNt', 'a47e37bec0e4f8a51431acccfc29eca7'),
+(5, 'c2hhbWJsZQ==', 'ff67c82d150cce4e750bb36a13810981'),
+(6, 'c2hhbWJsZXM=', '883e0cd3d2dff288754facb5750524e3'),
+(7, 'c2hhbWJsaW4=', 'bb5fb0e1cfda66cd3b0da4543f0f473a'),
+(8, 'c2hhbWU=', 'b5ebdbf9244d8bc3f30e9769e4474488'),
+(9, 'c2hhbWVmYWNlZA==', '84dbbeda8d65d20edc159be2c6dbd605'),
+(10, 'c2hhbWVmdWw=', '4c36f0c53030ccda0553dbe5d1c8e954'),
+(11, 'cmVjZWlwdG9y', 'd0102c209bd79035a80631c981a6360c'),
+(12, 'dXNlclhZWg==', 'b24331b1a138cde62aa1f679164fc62f'),
+(13, 'cmVjZWl2YWJsZQ==', 'ee2ff6d585274ada10e14a0af9ea7f49'),
+(14, 'cmVjZWl2ZQ==', '611ec72ad210aa2da3b0a8f147e80a63'),
+(15, 'cmVjZWl2ZXI=', 'dc22c27a3abb90a8fc2fcbe62a2dc4a1'),
+(16, 'cmVjZWl2ZXJzaGlw', '278f2bb1b98eb960849d44569c1a2564'),
+(17, 'cmVjZW5jeQ==', '11247a644e643c66e7f495a909b77198'),
+(18, 'cmVjZW5zaW9u', 'e6282a122517236f980809ddc5aafab2'),
+(19, 'cmVjZW50', 'a9c92d1d0cdca1b14f3fd1a98d77ed85'),
+(20, 'cmVjZW50bHk=', '6fdf1ca33273f35659fa6da66c1730b8'),
+(21, 'dXNlckFCQw==', 'f945e4ac4cfcb1adeb215662feea6ed5');
+
+
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`no`);
+
+
+ALTER TABLE `login`
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+COMMIT;

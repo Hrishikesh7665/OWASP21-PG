@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<heroes>
+	<hero>
+		<id>1</id>
+		<login>thor</login>
+		<password>Asgard</password>
+		<secret>Oh, no... this is Earth... isn't it?</secret>
+		<movie>Thor</movie>
+		<genre>action sci-fi</genre>
+	</hero>
+	<hero>
+		<id>2</id>
+		<login>wolverine</login>
+		<password>Log@N</password>
+		<secret>What's a Magneto?</secret>
+		<movie>X-Men</movie>
+		<genre>action sci-fi</genre>
+	</hero>
+</heroes>

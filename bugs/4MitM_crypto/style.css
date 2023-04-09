@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
+
+
+:root{
+    --purple:#814096;
+    --pink:#F83292;
+    --gradient:linear-gradient(90deg, var(--purple), var(--pink));
+}
+
+
+* {
+    box-sizing: border-box;
+  }
+  body {
+    background: linear-gradient(90deg, var(--purple),var(--pink));;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .container {
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    width: 500px;
+    overflow: hidden;
+    max-width: 80%;
+    
+  }
+  
+  .header {
+    background: #f7f7f7;
+    border: 1px solid #f0f0f0;
+    padding: 20px 40px;
+    justify-content: center;
+    display: flex;
+  }
+  
+  .header h2 {
+    margin: 0;
+  }
+  
+  form {
+    padding: 20px 20px;
+  }
+  
+  .form-control {
+    position: relative;
+    margin-bottom: 10px;
+    /* padding-bottom: 20px; */
+  }
+  
+  .form-control label {
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+  
+  .form-control input {
+    display: block;
+    border: 2px solid #f0f0f0;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .form-control.success input {
+    border-color: #2ecc71;
+  }
+  
+  .form-control.error input {
+    border-color: #e74c3c;
+  }
+  
+  .form-control i {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    visibility: hidden;
+  }
+  
+  .form-control.success i.fa-check-circle {
+    margin-top: 5px;
+    margin-right: 10px;
+    visibility: visible;
+    color: #2ecc71;
+  }
+  
+  .form-control.error i.fa-exclamation-circle {
+    margin-top: 5px;
+    margin-right: 10px;
+    visibility: visible;
+    color: #e74c3c;
+  }
+  
+  .form-control small {
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+  }
+  .form-control.error small {
+    visibility: visible;
+    color: #e74c3c;
+  }
+  
+  button {
+    background: linear-gradient(90deg, var(--purple), var(--pink));;
+    border: 2px solid linear-gradient(90deg, var(--purple), var(--pink));;
+    color: white;
+    display: block;
+    border-radius: 4px;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-family: inherit;
+  }
+  .btn {
+    width: 50px;
+    background-color: #f361aa;
+    border: none;
+    outline: none;
+    color: aliceblue;
+    height: 49px;
+    border-radius: 49px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+
+  .btnprevious {
+    width: 100px;
+    background-color: #f361aa;
+    border: none;
+    outline: none;
+    color: aliceblue;
+    height: 49px;
+    border-radius: 49px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.5s;
+
+  }
+
+  .btnnext {
+    width: 100px;
+    background-color: #f361aa;
+    border: none;
+    outline: none;
+    color: aliceblue;
+    height: 49px;
+    border-radius: 49px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.5s;
+
+  }

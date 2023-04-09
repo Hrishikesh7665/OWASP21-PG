@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-size: 1em;
+            background-color: #3498DB;
+        }
+
+        .login_form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form {
+            width: 23em;
+            padding: 2em;
+            margin-top: 100px;
+            border-radius: 1em;
+            box-shadow: 0 10px 25px rgba(52, 54, 54, 0.658);
+            background-color: #fff;
+        }
+
+        .form_title {
+            font-weight: 300;
+            margin-bottom: 1.3em;
+        }
+
+        .form_div {
+            position: relative;
+            height: 3em;
+            margin-bottom: 1.6em;
+        }
+
+
+        .form_input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 1em;
+            border: .1em solid #dadce0;
+            border-radius: .5em;
+            outline: none;
+            padding: 1em;
+            z-index: 1;
+            background: none;
+        }
+
+        .form_label {
+            position: absolute;
+            left: 1em;
+            top: 1em;
+            padding: 0 .25em;
+            background-color: #fff;
+            color: #80868b;
+            font-size: 1em;
+            transition: .4s;
+        }
+
+        .form_button {
+            width: 100%;
+            display: block;
+            margin-left: auto;
+            padding: 1em 2em;
+            ;
+            outline: none;
+            border: none;
+            background-color: rgb(28, 164, 248);
+            color: #fff;
+            font-size: 1em;
+            border-radius: .5em;
+            cursor: pointer;
+            transition: .4s;
+            margin-top: 6.3em;
+        }
+
+        .form_button:hover {
+            transform: scale(0.90);
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.20);
+        }
+
+        .form_input:focus+.form_label {
+            top: -.5em;
+            left: .8em;
+            color: rgb(28, 164, 248);
+            font-size: .80em;
+            font-weight: 600;
+            z-index: 5;
+        }
+
+        .form_input:not(:placeholder-shown).form_input:not(:focus)+.form_label {
+            top: -.5em;
+            left: .8em;
+            font-size: .80em;
+            font-weight: 600;
+            z-index: 5;
+        }
+
+        .form_input:focus {
+            border: .1em solid rgb(28, 164, 248);
+        }
+
+        .login_form #captcha {
+            margin: 15px 0px;
+        }
+
+        .login_form #captcha .preview {
+            user-select: none;
+            color: #555;
+            width: 100%;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            letter-spacing: 8px;
+            border: 1px dashed #888;
+            border-radius: 0.5em;
+            margin-bottom: 1.6em;
+
+        }
+
+        .form_input_captcha {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 1em;
+            border: 0.1em solid #dadce0;
+            border-radius: 0.5em;
+            outline: none;
+            padding: 1em;
+            z-index: 1;
+            background: none;
+        }
+
+
+        .form_label_captcha {
+            position: absolute;
+            left: 1em;
+            top: 5.2em;
+            padding: 0 .25em;
+            background-color: #fff;
+            color: #80868b;
+            font-size: 1em;
+            transition: .4s;
+        }
+
+        .form_input_captcha:focus+.form_label_captcha {
+            top: 4.7em;
+            left: .8em;
+            color: rgb(28, 164, 248);
+            font-size: .80em;
+            font-weight: 600;
+            z-index: 5;
+        }
+
+        .form_input_captcha:not(:placeholder-shown).form_input_captcha:not(:focus)+.form_label_captcha {
+            top: 4.6em;
+            ;
+            left: .8em;
+            font-size: .80em;
+            font-weight: 600;
+            z-index: 5;
+        }
+
+        .form_input_captcha:focus {
+            border: .1em solid rgb(28, 164, 248);
+        }
+
+        .login_form #captcha .preview span {
+            display: inline-block;
+            user-select: none;
+        }
+
+        .login_form #captcha .captcha_form {
+            display: flex;
+        }
+
+        .login_form #captcha .captcha_form input {
+            width: 100%;
+            font-size: 1em;
+            border-radius: 0.5em;
+            outline: none;
+            padding: 1em;
+            z-index: 1;
+            background: none;
+        }
+
+
+        .login_form #captcha .captcha_form .captcha_refersh {
+            width: 40px;
+            border: none;
+            outline: none;
+            /* background: #888; */
+            color: #eee;
+            cursor: pointer;
+            border-radius: 0.5em;
+            margin-left: 5px;
+        }
+
+        .captcha_refersh {
+            transition: .4s;
+
+        }
+
+
+        .captcha_refersh:hover {
+            transition: .4s;
+
+            transform: scale(0.90);
+        }
+
+
+
+        .modalView {
+            width: 450px;
+            position: absolute;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 70px;
+            left: 50%;
+            background: #f0a416e0;
+            transform: translate(-50%, -50%);
+            padding: 20px 20px;
+            font-size: 1.2rem;
+            -webkit-box-shadow: -1px 2px 30px -8px rgba(0, 0, 0, 0.62);
+            -moz-box-shadow: -1px 2px 30px -8px rgba(0, 0, 0, 0.62);
+            box-shadow: -1px 2px 30px -8px rgba(0, 0, 0, 0.62);
+        }
+
+        .modalView>.modalView__content {
+            color: white;
+            font-weight: bold;
+        }
+
+        .modalView>.modalView__content.centered {
+            text-align: center;
+        }
+
+        .modalView__content h1 {
+            font-size: 1.5rem;
+            padding-bottom: 10px;
+        }
+
+        .modalView__content p {
+            font-size: 1rem;
+        }
+
+        #modalView__closeBtn {
+            position: absolute;
+            background: #000000;
+            width: 35px;
+            border-radius: 35px;
+            height: 35px;
+            right: -17px;
+            top: -17px;
+            color: white;
+        }
+
+        #modalView__closeBtn {
+            cursor: pointer;
+        }
+
+        #modalView__closeBtn:after,
+        #modalView__closeBtn:before {
+            content: "";
+            height: 20px;
+            width: 20px;
+            border-top: 3px solid #ffffff;
+            position: absolute;
+            top: 13px;
+            right: 0px;
+            -moz-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+
+        #modalView__closeBtn:before {
+            color: white;
+            right: 14px;
+            -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        #modalView__closeBtn:hover {
+            background-color: green;
+        }
+    </style>
+    <div class="modalView" id="modalView">
+        <div id="modalView__closeBtn"></div>
+        <div class="modalView__content centered">
+            <!--     <h1>THIS IS A TITLE</h1> -->
+            <p>Task: Brute-force the login page bypassing the captcha<br>Hint- user_XYZ</p>
+        </div>
+    </div>
+    <!-- partial:index.partial.html -->
+    <div class="login_form">
+        <form action="login.php" class="form" method="POST" id="login_form">
+            <h1 class="form_title"> Log In </h1>
+
+            <div class="form_div">
+                <input type="text" class="form_input" id="uName" name="username" placeholder=" ">
+                <label class="form_label">Email</label>
+            </div>
+
+            <div class="form_div">
+                <input type="password" class="form_input" id="userPass" name="password" placeholder=" ">
+                <label class="form_label">Password</label>
+            </div>
+
+            <div id="captcha" class="form_div">
+                <div class="preview" id="preview"></div>
+                <div class="captcha_form">
+                    <input type="text" id="captcha_form" class="form_input_captcha" placeholder=" ">
+                    <label class="form_label_captcha">Enter Captcha</label>
+                    <button class="captcha_refersh" type="button">
+                        <img src="re.png" alt="" width="22px" height="22px" />
+                    </button>
+                </div>
+            </div>
+            <input type="hidden" name="check_captcha" value="false">
+            <input type="submit" class="form_button" value="Log In">
+        </form>
+    </div>
+
+    <script>
+
+        const modalView = document.getElementById("modalView");
+
+        const closeBtn = document.getElementById("modalView__closeBtn");
+
+        closeBtn.addEventListener("click", () => {
+            modalView.style.display = "none";
+        });
+
+
+        (function () {
+            const fonts = ["cursive"];
+            const captchaLength = 8;
+            let captchaValue = "";
+
+            function generateCaptcha() {
+                let value = "";
+                const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                for (let i = 0; i < captchaLength; i++) {
+                    value += characters.charAt(Math.floor(Math.random() * characters.length));
+                }
+                captchaValue = value;
+            }
+
+            function setCaptcha() {
+                const captchaContainer = document.querySelector(".login_form #captcha .preview");
+                captchaContainer.innerHTML = captchaValue.split("").map((char) => {
+                    return char;
+                }).join("");
+            }
+
+            function initCaptcha() {
+                const captchaRefreshButton = document.querySelector(".login_form #captcha .captcha_refersh");
+                captchaRefreshButton.addEventListener("click", function () {
+                    generateCaptcha();
+                    setCaptcha();
+                });
+                generateCaptcha();
+                setCaptcha();
+            }
+
+            initCaptcha();
+
+            document.getElementById('login_form').addEventListener('click', function (event) {
+                event.preventDefault();
+                const uname = document.getElementById('uName').value;
+                const password = document.getElementById('userPass').value;
+                const userCaptcha = document.getElementById('captcha_form').value;
+                const generateCaptcha = document.getElementById('preview').innerText;
+
+                if (uname.length >= 2 && password.length >= 2) {
+                    if (generateCaptcha === userCaptcha) {
+                        document.getElementsByName("check_captcha")[0].value = "true";
+                        document.getElementById("login_form").submit();
+                    }
+                }
+            });
+        })();
+        window.addEventListener("load", (event) => {
+            document.getElementsByName("check_captcha")[0].value = "false";
+            document.getElementById("login_form").reset();
+            if (new URLSearchParams(window.location.search).get('p') == 'failed') alert('Invalid login');
+            window.history.pushState({}, document.title, window.location.pathname);
+        });
+    </script>
+</body>
+
+</html>
