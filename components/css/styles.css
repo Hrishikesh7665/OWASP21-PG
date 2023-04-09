@@ -1,0 +1,240 @@
+html{
+        user-select: none;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var, u, center,
+dl, dt, dd, ol,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+        margin: 0;
+        padding: 0px;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+}
+
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+        display: block;
+}
+
+body {
+        line-height: 1;
+        text-align: justify; 
+        min-height: 100vh;
+}
+
+blockquote, q {
+        quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+        content: "";
+        content: none;
+}
+
+table {
+        border-collapse: collapse;
+        border-spacing: 0;
+}
+
+body {
+        font-size: 15px;
+        line-height: 1.5;
+        background: #fafafa;
+        font-family: 'Audiowide', sans-serif;
+        font-weight: 400;
+        color: #666;
+}
+
+a {
+        color: #ff4500; 
+}
+
+a:hover {
+        color: #ffa319;       
+}
+
+ul, ol, dl {
+        margin-top: 5px;
+        margin-bottom: 5px;
+}
+
+hr {
+        height: 1px;
+        line-height: 1px;
+        margin-top: 1em;
+        padding-bottom: 1em;
+        border: none;
+}
+
+header {
+        font-family: 'Audiowide', sans-serif;
+        position: relative;
+        height: 175px;
+        position:relative;
+        overflow: hidden; 
+}
+
+header canvas {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+}
+
+header h1 {
+        font-size: 55px;
+        color: #ffffff;
+        line-height: 1;
+        letter-spacing: -1px;
+        margin-top: 20px;
+        margin-bottom: 0.2em;
+        position:relative;
+        z-index:1;
+        text-align: center;
+}
+
+header h2 {
+        font-size: 25px;
+        color: #ceefbc;
+        line-height: 0.8; 
+        position:relative;
+        z-index:1;
+        text-align: center;
+        margin-bottom: 9.5px;
+}
+
+header h3 {
+        font-size: 25px;
+        color: #ceefbc;
+        line-height: 1; 
+        position:relative;
+        z-index:1;
+        text-align: center;
+}
+
+#menu {
+        font-family: 'Audiowide', sans-serif;
+        font-size: 18px;
+        color: #ffffff;
+        background: url("/components/images/bg.png") 0px 0px repeat-x;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 10px;
+        min-width: 1250px;
+        justify-content: center;
+        text-align: center;
+}
+
+#menu a { 
+        color: #ffffff;
+        text-decoration:none;
+}
+
+#menu a:hover {
+        color: #8CDBA9;
+}
+
+
+#menu table {
+        border: 0px solid #ebebeb;
+
+}
+
+#menu th {
+        font-weight: 500;
+}
+
+#menu td {
+        border: 0px solid #ebebeb;
+        padding-left: 40px;
+        vertical-align: middle;
+}
+
+#main {
+        width: 80;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 20px;
+}
+
+#main p {
+        padding-bottom: 12px;
+        text-align: center;
+        font-size: 15px;
+}
+
+#main a { 
+        text-decoration:none; 
+        font-weight:bold;
+        color: #666;
+}
+
+#main h1 {
+        font-family: 'Audiowide', sans-serif;
+        font-size: 40px;
+        letter-spacing: -1px;
+        color: #474747;
+        text-align: center;
+} 
+
+#main h1:before {
+        content: ">";
+        color: #00917C;
+        padding-right: 5px;
+}
+
+#main h1:after {
+        content: "_";
+        color: #00917C;
+        padding-left: 2px;
+        animation: cursor-blink 1.5s steps(2) infinite;
+}
+
+
+@keyframes cursor-blink {
+0% {
+        opacity: 0;
+}
+}
+
+.button {
+        margin-bottom: 4px;
+        display: block;
+}
+
+
+@font-face {
+        font-family: 'Audiowide';
+        src: url('/components/fonts/audiowide.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+}
+
+.footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 9999;
+        background-color: rgb(83, 83, 83);
+        height: 30px;
+}
+.footer p {
+        margin: 0;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        color: white;
+}

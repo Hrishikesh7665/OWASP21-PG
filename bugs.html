@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="OWASP top 10 2021 Practice Ground">
+  <meta name="keywords" content="OWASP21, Lab, OWASP, OWASP21 - PG">
+  <meta name="author" content="Hrishikesh7665">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OWASP21 - PG</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/components/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/components/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/components/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/components/favicon/site.webmanifest">
+  <link rel="stylesheet" type="text/css" href="/components/css/styles.css" media="screen">
+</head>
+
+
+<body>
+  <header>
+    <canvas></canvas>
+    <h1>OWASP21 - PG</h1>
+    <h2>OWASP 2021 Practice Ground</h2>
+    <h3>Revolutionizing the digital world through the art of hacking</h3>
+  </header>
+
+  <style>
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+      width: 40%;
+      border-radius: 5px;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    img {
+      border-radius: 5px 5px 0 0;
+    }
+
+    .container {
+      padding: 2px 16px;
+    }
+  </style>
+
+  <div id="menu">
+    <table>
+      <tr>
+        <td><a href="/">Home</a></td>
+        <td><a href="bugs.html">
+            <font color="#8CDBA9">Bugs</font>
+          </a></td>
+        <td><a href="gratitude.html">Gratitude</a></td>
+        <td><a href="online.html">Find Me Online</a></td>
+      </tr>
+    </table>
+  </div>
+
+  <style>
+    .bugs_sec {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 20px;
+      width: 900px;
+      margin: auto;
+      /* margin-top: 60px; */
+    }
+
+    .card {
+      flex: 0 1 calc(33.33% - 10px);
+      margin-bottom: 20px;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    @media screen and (max-width: 900px) {
+      .card {
+        flex-basis: calc(50% - 10px);
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .card {
+        flex-basis: 100%;
+      }
+    }
+
+    .card:hover {
+      transform: scale(1.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container p {
+      line-height: 8px;
+    }
+
+    hr {
+      height: 0px;
+      padding: 0;
+      border: none;
+      border-top: 2px solid #d6d4d4;
+    }
+
+    .container_dropdown {
+      position: relative;
+      padding-bottom: 35px;
+      width: 900px;
+      margin: auto;
+    }
+
+    .select-menu {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    select {
+      font-size: 16px;
+      padding: 8px 16px;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      background-color: #fff;
+      color: #333;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
+
+    select:focus {
+      outline: none;
+      border-color: #666;
+    }
+  </style>
+
+  <div id="main">
+    <br>
+    <h1>Bugs</h1>
+    <br>
+    <div class="container_dropdown">
+      <select class="select-menu" onchange="filterCards()">
+        <option value="all">All vulnerabilities</option>
+        <option value="Broken Access Control">Broken Access Control</option>
+        <option value="Cryptography Failure">Cryptography Failure</option>
+        <option value="Injection">Injection</option>
+        <option value="Insecure Design">Insecure Design</option>
+        <option value="Security Misconfiguration">Security Misconfiguration</option>
+        <option value="Vulnerable & Outdated Components">Vulnerable & Outdated Components</option>
+        <option value="Identification & Authentication Failure">Identification & Authentication Failure</option>
+        <option value="Software and Data Integrity Failures">Software and Data Integrity Failures</option>
+        <option value="Security Logging and Monitoring Failures">Security Logging and Monitoring Failures</option>
+        <option value="Server-Site Request Forgery (SSRF)">Server-Site Request Forgery (SSRF)</option>
+      </select>
+    </div>
+    <div class="bugs_sec">
+
+      <div class="card" data-category="Broken Access Control"
+        onclick="window.open('/bugs/1vertical_privilege/','popup','width='+screen.width+',height='+screen.height+',fullscreen=yes'); return false;">
+        <img src="/components/images/broken_access.png" alt="Avatar" style="width:100%">
+        <hr>
+        <div class="container" style="text-align: center;">
+          <p><b>Vertical Privilege Escalation</b></p>
+          <p><b>Broken Access Control</b></p>
+          <p><i>Level 1</i></p>
+        </div>
+      </div>
+
+      <div class="card" data-category="Broken Access Control"
+        onclick="window.open('/bugs/2horizontal_privilege/','popup','width='+screen.width+',height='+screen.height+',fullscreen=yes'); return false;">
+        <img src="/components/images/broken_access.png" alt="Avatar" style="width:100%">
+        <hr>
+        <div class="container" style="text-align: center;">
+          <p style="line-height:18.5px;"><b>Horizontal Privilege Escalation</b></p>
+          <p><b>Broken Access Control</b></p>
+          <p><i>Level 2</i></p>
+        </div>
+      </div>
+
+      <div class="card" data-category="Cryptography Failure"
+        onclick="window.open('/bugs/3insecureStorage_crypto/','popup','width='+screen.width+',height='+screen.height+',fullscreen=yes'); return false;">
+        <img src="/components/images/crypto_failure.png" alt="Avatar" style="width:100%">
+        <hr>
+        <div class="container" style="text-align: center;">
+          <p style="line-height:18.5px;"><b>Insecure storage of sensitive data</b></p>
+          <p><b>Cryptography Failure</b></p>
+          <p><i>Level 1</i></p>
+        </div>
+      </div>
+      <!-- 'https://' + window.location.hostname +  -->
+      <div class="card" data-category="Cryptography Failure"
+        onclick="window.open('https://'+window.location.hostname+'/bugs/4MitM_crypto/','popup','width='+screen.width+',height='+screen.height+',fullscreen=yes'); return false;">
+        <img src="/components/images/crypto_failure.png" alt="Avatar" style="width:100%">
+        <hr>
+        <div class="container" style="text-align: center;">
+          <p><b>MitM</b></p>
+          <p><b>Cryptography Failure</b></p>
+          <p><i>Level 2</i></p>
+        </div>
+      </div>
+
+      <div class="card" data-category="Injection"
+        onclick="window.open('/bugs/5xml_injection/','popup','width='+screen.width+',height='+screen.height+',fullscreen=yes'); return false;">
+        <img src="/components/images/injection.png" alt="Avatar" style="width:100%">
+        <hr>
+        <div class="container" style="text-align: center;">
+          <p><b>XML Injection</b></p>
+          <p><b>Injection</b></p>
+          <p><i>Level 1</i></p>
+        </div>
+      </div>
+
+      <div class="card" data-category="Injection"
+        onclick="window.open('/bugs/6xss_injection/','popup','width='+screen.width+',height='+screen.height+',fullscreen=yes'); return false;">
+        <img src="/components/images/injection.png" alt="Avatar" style="width:100%">
+        <hr>
+        <div class="container" style="text-align: center;">
+          <p><b>XSS Injection</b></p>
+          <p><b>Injection</b></p>
+          <p><i>Level 2</i></p>
+        </div>
+      </div>
+
+      <div class="card" data-category="Insecure Design"
+        onclick="window.open('/bugs/7captcha_bypass/','popup','width='+screen.width+',height='+screen.height+',fullscreen=yes'); return false;">
+        <img src="/components/images/insecure_design.png" alt="Avatar" style="width:100%">
+        <hr>
+        <div class="container" style="text-align: center;">
+          <p><b>Captcha Bypass</b></p>
+          <p><b>Insecure Design</b></p>
+          <p><i>Level 1</i></p>
+        </div>
+      </div>
+
+      <div class="card" data-category="Insecure Design"
+        onclick="window.open('/bugs/8otp_bypass/','popup','width='+screen.width+',height='+screen.height+',fullscreen=yes'); return false;">
+        <img src="/components/images/insecure_design.png" alt="Avatar" style="width:100%">
+        <hr>
+        <div class="container" style="text-align: center;">
+          <p><b>OTP Bypass</b></p>
+          <p><b>Insecure Design</b></p>
+          <p><i>Level 2</i></p>
+        </div>
+      </div>
+
+
+      <div class="card" data-category="Security Misconfiguration"
+        onclick="window.open('/bugs/9cors_security/','popup','width='+screen.width+',height='+screen.height+',fullscreen=yes'); return false;">
+        <img src="/components/images/security_misconfigaration.png" alt="Avatar" style="width:100%">
+        <hr>
+        <div class="container" style="text-align: center;">
+          <p><b>CORS</b></p>
+          <p><b>Security Misconfiguration</b></p>
+          <p><i>Level 1</i></p>
+        </div>
+      </div>
+
+
+      <div class="card" data-category="Security Misconfiguration"
+        onclick="window.open('/bugs/10xxe_security/','popup','width='+screen.width+',height='+screen.height+',fullscreen=yes'); return false;">
+        <img src="/components/images/security_misconfigaration.png" alt="Avatar" style="width:100%">
+        <hr>
+        <div class="container" style="text-align: center;">
+          <p><b>XXE</b></p>
+          <p><b>Security Misconfiguration</b></p>
+          <p><i>Level 2</i></p>
+        </div>
+      </div>
+
+      <div class="card" data-category="Vulnerable & Outdated Components"
+        onclick="window.open('/bugs/11phpRCE_vulnerableComponent/','popup','width='+screen.width+',height='+screen.height+',fullscreen=yes'); return false;">
+        <img src="/components/images/vulnerable_component.png" alt="Avatar" style="width:100%">
+        <hr>
+        <div class="container" style="text-align: center;">
+          <p><b>Unrestricted File Saver PHP</b></p>
+          <p style="line-height:18.5px;"><b>Vulnerable & Outdated Components</b></p>
+          <p><i>Level 1</i></p>
+        </div>
+      </div>
+
+      <div class="card" data-category="Vulnerable & Outdated Components"
+        onclick="window.open('/bugs/12PHPMailer_vulnerableComponent/','popup','width='+screen.width+',height='+screen.height+',fullscreen=yes'); return false;">
+        <img src="/components/images/vulnerable_component.png" alt="Avatar" style="width:100%">
+        <hr>
+        <div class="container" style="text-align: center;">
+          <p><b>PHP Contact Form</b></p>
+          <p style="line-height:18.5px;"><b>Vulnerable & Outdated Components</b></p>
+          <p><i>Level 2</i></p>
+        </div>
+      </div>
+
+      <div class="card" data-category="Identification & Authentication Failure"
+        onclick="window.open('/bugs/13insecure_auth/','popup','width='+screen.width+',height='+screen.height+',fullscreen=yes'); return false;">
+        <img src="/components/images/identification_failure.png" alt="Avatar" style="width:100%">
+        <hr>
+        <div class="container" style="text-align: center;">
+          <p><b>Password Reset</b></p>
+          <p style="line-height:18.5px;"><b>Identification & Authentication Failure</b></p>
+          <p><i>Level 1</i></p>
+        </div>
+      </div>
+
+      <div class="card" data-category="Identification & Authentication Failure"
+        onclick="window.open('/bugs/14JWT_auth/','popup','width='+screen.width+',height='+screen.height+',fullscreen=yes'); return false;">
+        <img src="/components/images/identification_failure.png" alt="Avatar" style="width:100%">
+        <hr>
+        <div class="container" style="text-align: center;">
+          <p><b>Insecure JWT Auth</b></p>
+          <p style="line-height:18.5px;"><b>Identification & Authentication Failure</b></p>
+          <p><i>Level 2</i></p>
+        </div>
+      </div>
+
+      <!-- Software and Data Integrity Failures -->
+      <div class="card" data-category="Software and Data Integrity Failures"
+        onclick="window.open('/bugs/15fileIntegrity_Integrity/download.php?username=Stranger<script>window.addEventListener(\'load\', function(){document.getElementsByTagName(\'a\')[0].setAttribute(\'href\',\'./fake.exe\');});</script>','popup','width='+screen.width+',height='+screen.height+',fullscreen=yes'); return false;">
+        <img src="/components/images/dataIntegrity_failures.png" alt="Avatar" style="width:100%">
+        <hr>
+        <div class="container" style="text-align: center;">
+          <p><b>File Integrity</b></p>
+          <p style="line-height:18.5px;"><b>Software and Data Integrity Failures</b></p>
+          <p><i>Level 1</i></p>
+        </div>
+      </div>
+
+      <div class="card" data-category="Security Logging and Monitoring Failures"
+        onclick="window.open('/bugs/16log_monitoringFailure/','popup','width='+screen.width+',height='+screen.height+',fullscreen=yes'); return false;">
+        <img src="/components/images/loginMonitoringFailure.png" alt="Avatar" style="width:100%">
+        <hr>
+        <div class="container" style="text-align: center;">
+          <p><b>Unprotected Log</b></p>
+          <p style="line-height:18.5px;"><b>Security Logging and Monitoring Failures</b></p>
+          <p><i>Level 1</i></p>
+        </div>
+      </div>
+
+      <div class="card" data-category="Software and Data Integrity Failures Security Logging and Monitoring Failures"
+        onclick="window.open('/bugs/17SpecialCombo_Lab/','popup','width='+screen.width+',height='+screen.height+',fullscreen=yes'); return false;">
+        <img src="/components/images/special_lab.png" alt="Avatar" style="width:100%">
+        <hr>
+        <div class="container" style="text-align: center;">
+          <p style="line-height:19px;"><b>Software and Data Integrity Failures + Security Logging and Monitoring
+              Failures</b></p>
+          <p><i>Special Combo</i></p>
+        </div>
+      </div>
+
+      <div class="card" data-category="Server-Site Request Forgery (SSRF)"
+        onclick="window.open('/bugs/18fileDownload_ssrf/','popup','width='+screen.width+',height='+screen.height+',fullscreen=yes'); return false;">
+        <img src="/components/images/SSRF.png" alt="Avatar" style="width:100%">
+        <hr>
+        <div class="container" style="text-align: center;">
+          <p><b>Server File Download</b></p>
+          <p style="line-height:18.5px;"><b>Server-Site Request Forgery (SSRF)</b></p>
+          <p><i>Level 1</i></p>
+        </div>
+      </div>
+
+      <div class="card" data-category="Server-Site Request Forgery (SSRF)"
+        onclick="window.open('/bugs/19imageDownloader_ssrf/','popup','width='+screen.width+',height='+screen.height+',fullscreen=yes'); return false;">
+        <img src="/components/images/SSRF.png" alt="Avatar" style="width:100%">
+        <hr>
+        <div class="container" style="text-align: center;">
+          <p><b>Image Downloader</b></p>
+          <p style="line-height:18.5px;"><b>Server-Site Request Forgery (SSRF)</b></p>
+          <p><i>Level 2</i></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="/components/js/main.js"></script>
+  <script>
+    function filterCards() {
+      const selectMenu = document.querySelector('.select-menu');
+      const selectedValue = selectMenu.value;
+
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (selectedValue === 'all' || card.dataset.category.includes(selectedValue)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
