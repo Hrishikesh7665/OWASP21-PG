@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<heroes>
+	<hero>
+		<id>1</id>
+		<login>userABC</login>
+		<password>$2y$10$QVotc.0LgIZSZCi6e6d6i.mHNvWbSpozXfkFMe4vpq0lLW1rrpV0e</password>
+	</hero>
+	<hero>
+		<id>2</id>
+		<login>userXYZ</login>
+		<password>$2y$10$9OAM9k01s3rRqL3eF73V7uxcVgLXmPcYjgCAS4TZKRgpvDB6yP3ui</password>
+	</hero>
+</heroes>

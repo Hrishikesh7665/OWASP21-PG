@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Download Page</title>
+	<style>
+		body {
+			background-color: #f2f2f2;
+			font-family: Arial, sans-serif;
+			text-align: center;
+			margin-top: 50px;
+		}
+		input[type=text] {
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			margin-bottom: 20px;
+			width: 250px;
+			font-size: 16px;
+			box-shadow: 1px 1px 2px #ccc;
+		}
+		button {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+			box-shadow: 1px 1px 2px #ccc;
+		}
+		button:hover {
+			background-color: #3e8e41;
+		}
+	</style>
+</head>
+<body>
+	<h1>Genuine Software Download Page</h1>
+	<form action="download.php" method="GET">
+		<label for="username">Please Enter Your Name</label><br><br>
+		<input type="text" name="username" placeholder="Enter name"><br>
+		<button type="submit">Download</button>
+	</form>
+    <br>
+    <div style="justify-content: center;">
+        <h3>Please verify Hashes after download</h3>
+        <p><b>SHA256 :</b> 14fe0fd6abf0b3da57312391eae8574b57ed798907901fcc172ea8547e5f89aa</p>
+        <p><b>MD5 :</b> 1d4627aa45a5359e5781654b86c3310f</p>
+    </div>
+    <br><br>
+        <h3>Explanation of this lab</h3>
+        <p>An attacker can perform a simple Cross-Site Scripting (XSS) attack on a website and modify the content of a file download link. The attacker<br>can then use phishing tactics to trick users into downloading the malicious file. To prevent users from unknowingly using a malicious file,<br><b>it's recommended to compare the file's hash value after downloading it before using it.</b></p>
+</body>
+</html>

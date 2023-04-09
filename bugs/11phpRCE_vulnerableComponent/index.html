@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex">
+  <link rel='stylesheet prefetch' href='./components/css/bootstrap.min.css'>
+  <link rel='stylesheet prefetch' href='./components/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="./components/css/style.css">
+</head>
+<body>
+		<div class="container2">
+			<h3>Scenario</h3>
+			<p>Suppose this is a CMS Website where you can edit and save file to the server.
+        The server use vulnerable PHP <b>eval()</b> function to save file to the server</p>
+			<br>
+      <h3>Task</h3>
+      <p>Explot the eval() function</p>     
+
+      <p><b>N.B</b> For security reason I did't use the php eval() function but this code still save arbitrary file to server.</p>
+      
+		</div>
+    <div ng-app="textAngularTest" ng-controller="wysiwygeditor" class="container app">
+      <h3>CMS Content Creator</h3>
+      <div class="editor-header">
+        <label for="filename">Filename:</label>
+        <input type="text" id="filename" ng-model="filename" />
+        &nbsp; <button class="btn btn-primary" ng-click="saveFile()">Save</button>
+      </div>
+      <div text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'></div>
+    </div>
+    
+  <script src='./components/js/angular.min.js'></script>
+  <script src='./components/js/angular-sanitize.min.js'></script>
+  <script src='./components/js/textAngular.min.js'></script>
+  <script  src="./components/js/script.js"></script>
+  <script>
+      let app = angular.module('textAngularTest', ['textAngular']);
+      app.controller('wysiwygeditor', function($scope, $http) {
+        $scope.filename = '';
+        $scope.htmlcontent = ''; 
+        $scope.saveFile = function() {
+        if (!$scope.filename || !$scope.htmlcontent) {
+          alert('Filename or HTML content is empty');
+          return;
+        }
+        fetch('save.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            filename: $scope.filename,
+            htmlcontent: $scope.htmlcontent
+          })
+        }).then(function(response) {
+          if (response.ok) {
+            response.text().then((text) => {
+              // console.log(text);
+              alert ('File saved successfully');
+            });
+          } else {
+            console.log('Error saving file');
+          }
+        }).catch(function(error) {
+          console.log('Error saving file:', error);
+        });
+      };
+      });
+  </script>
+</body>
+</html>

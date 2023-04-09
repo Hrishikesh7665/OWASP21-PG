@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+  <link rel="stylesheet" href="./components/style.css">
+</head>
+<body>
+
+<header>
+  <button class="menu ripple" type="menu"></button>
+  <h1>An E-library</h1>
+  <input class="desktop-only" id="input" type="text" placeholder="Search"/>
+  <label class="mobile-only ripple" for="input"></label>
+  <div style="background-color: aliceblue; padding: 10px; margin-right: 25px;">
+  <p style="color: black;"><b>Task:</b> Download Internal Files from server</p>
+</div>
+  <ul>
+    <li class="ripple">All Books</li>
+    <li class="ripple active">Detective Books</li>
+    <li class="ripple">Story Books</li>
+    <li class="ripple">Comics Books</li>
+    <li class="ripple">Novels</li>
+    <div class="slider"></div>
+  </ul>
+</header>
+
+<main>
+  <div class="card ripple" onclick="File_downloader('SherlockHolmes.pdf')"></div>
+  <div class="card ripple" onclick="File_downloader('SherlockHolmes.pdf')"></div>
+  <div class="card ripple" onclick="File_downloader('SherlockHolmes.pdf')"></div>
+  <div class="card ripple" onclick="File_downloader('SherlockHolmes.pdf')"></div>
+  <div class="card ripple" onclick="File_downloader('SherlockHolmes.pdf')"></div>
+  <div class="card ripple" onclick="File_downloader('SherlockHolmes.pdf')"></div>
+  <div class="card ripple" onclick="File_downloader('SherlockHolmes.pdf')"></div>
+  <div class="card ripple" onclick="File_downloader('FatherBrown.pdf')"></div>
+  <div class="card ripple" onclick="File_downloader('FatherBrown.pdf')"></div>
+  <div class="card ripple" onclick="File_downloader('FatherBrown.pdf')"></div>
+  <div class="card ripple" onclick="File_downloader('FatherBrown.pdf')"></div>
+  <div class="card ripple" onclick="File_downloader('FatherBrown.pdf')"></div>
+  <div class="card ghost" onclick="File_downloader('FatherBrown.pdf')"></div>
+  <div class="card ghost" onclick="File_downloader('FatherBrown.pdf')"></div>
+  <div class="card ghost" onclick="File_downloader('FatherBrown.pdf')"></div>
+</main>
+<script src="./components/jquery.min.js"></script>
+<script  src="./components/script.js"></script>
+<script>
+  function getLastPart(path) {
+  const parts = path.split("\\");
+  return parts[parts.length - 1];
+  }
+function File_downloader(down_file) {
+  let file_name = down_file;
+  let formData = {
+    file: file_name,
+    download: "Download file"
+  };
+  
+  $.ajax({
+    type: "POST",
+    url: "FileDownloader.php",
+    data: formData,
+    xhrFields: {
+      responseType: 'blob'
+    },
+    success: function(response) {
+      let url = window.URL.createObjectURL(response);
+      let a = document.createElement('a');
+      a.href = url;
+      a.download = getLastPart(file_name);
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    },
+    error: function(xhr, status, error) {
+    }
+  });
+}
+</script>
+</body>
+</html>
