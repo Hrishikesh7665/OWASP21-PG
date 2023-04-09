@@ -1,9 +1,16 @@
+<p align="center">
+  <img src="https://github.com/Hrishikesh7665/OWASP21-PG/raw/resources/images/OWASP21-PG-Logo.png" width="300" height="300" alt="OWASP21-PG Logo">
+</p>
+
 # OWASP21 - PG: OWASP Top 10 for 2021 Practice Ground
 
-![OWASP21-PG Logo](https://github.com/Hrishikesh7665/OWASP21-PG/raw/resources/images/OWASP21-PG-Logo.png "OWASP21 Practice Ground")
+OWASP21-PG (OWASP Top 10 for 2021 Practice Ground) is a practical lab designed to equip security enthusiasts, developers, and students with the necessary skills to identify and prevent web vulnerabilities, particularly those in the OWASP Top 10 list for 2021. This project builds on the foundation of bWAPP, a free and open-source deliberately insecure web application, but takes it to the next level by providing a comprehensive practical lab that covers all categories in the OWASP Top 10. With OWASP21-PG, you can have fun while gaining the necessary skills to protect your digital world.
 
-
-OWASP21 - PG is a practical lab designed to equip security enthusiasts, developers, and students with the necessary skills to identify and prevent web vulnerabilities, particularly those in the OWASP Top 10 list for 2021. The project builds on the foundation of bWAPP, a free and open-source deliberately insecure web application, but takes it to the next level by providing a comprehensive practical lab that covers all categories in the OWASP Top 10.
+## Table of Contents
+- [Features](#features)
+- [Disclaimer](#disclaimer)
+- [Installation](#installation)
+- [License](#license)
 
 ## Features
 - Covers all categories in the OWASP Top 10 for 2021
