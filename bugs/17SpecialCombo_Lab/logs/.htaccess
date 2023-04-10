@@ -1,0 +1,16 @@
+RewriteEngine On
+RewriteBase /
+
+<Files "access.log">
+        Order Deny,Allow
+        Deny from all
+        Allow from localhost
+        Allow from 0.0.0.0
+</Files>
+
+<Files "error.log">
+    Order Deny,Allow
+    Deny from all
+    Allow from localhost
+    Allow from 0.0.0.0
+</Files>
