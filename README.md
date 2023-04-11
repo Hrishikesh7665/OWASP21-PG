@@ -23,6 +23,7 @@ OWASP21-PG (OWASP Top 10 for 2021 Practice Ground) is a practical lab designed t
   - [A09:2021-Security Logging and Monitoring Failures](#a092021--security-logging-and-monitoring-failures)
   - [A10:2021-Server-Side Request Forgery](#a102021--server-side-request-forgery-ssrf)
   - [A08:2021 + A09: *Special Lab*](#special-lab-software-and-data-integrity-failure--security-logging-and-monitoring-failure)
+- [References](#references)
 - [Credits](#credits)
 - [Disclaimer](#disclaimer)
 - [License](#license)
@@ -38,7 +39,7 @@ OWASP21-PG (OWASP Top 10 for 2021 Practice Ground) is a practical lab designed t
 ### Installing From Sources
 1. Clone the repository to your local machine using the following command:
 ```
-https://github.com/Hrishikesh7665/OWASP21-PG.git
+git clone https://github.com/Hrishikesh7665/OWASP21-PG.git
 ```
 Alternatively, You can Download The Zip
 
@@ -52,7 +53,7 @@ Alternatively, You can Download The Zip
 
 1. Clone the repository to your local machine using the following command:
 ```
-https://github.com/Hrishikesh7665/OWASP21-PG.git
+git clone https://github.com/Hrishikesh7665/OWASP21-PG.git
 ```
 
 2. Build the docker image from Dockerfile using
@@ -110,6 +111,20 @@ docker run -it -p 80:80 -p 443:443 -p 1025:1025 --name owasp21-pg owasp21-pg
 ### *Special Lab (Software and Data Integrity Failure + Security Logging and Monitoring Failure)*
 - LAB By Exploiting Data Integrity Failure Unlock Server Internal Logs
 
+## References
+- [Open Web Application Security Project Top 10 2021](https://owasp.org/Top10/)
+- [Vertical Privilege Escalation](https://purplesec.us/privilege-escalation-attacks/#Vertical)
+- [Horizontal Privilege Escalation](https://purplesec.us/privilege-escalation-attacks/#Horizontal)
+- [Insecure storage of sensitive data](https://cwe.mitre.org/data/definitions/922.html)
+- [Man in the Middle (MitM)](https://www.ssh.com/academy/attack/man-in-the-middle#:~:text=A%20man-in-the-middle%20attack%20(MITM),the%20client%20and%20the%20server.)
+- [XML Injection](https://www.thesslstore.com/blog/xml-injection-attacks-what-to-know-about-xpath-xquery-xxe-more/#:~:text=XML%20injection%2C%20sometimes%20called%20XML,used%20for%20structuring%20storing%20data.)
+- [XSS Injection](https://www.acunetix.com/websitesecurity/cross-site-scripting/)
+- [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+- [XML External Entity Injection (XXE)](https://learn.securecodewarrior.com/secure-coding-guidelines/security-misconfiguration-xxe-detailed)
+- [PHPMailer Vulnerabilities (CVE-2016-10033)](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10033)
+- [Insecure JSON Web Tokens (JWT)](https://www.thehacker.recipes/web/inputs/jwt)
+- [Server-side request forgery (SSRF)](https://www.imperva.com/learn/application-security/server-side-request-forgery-ssrf/#:~:text=ToolsEssentialsThreats-,What%20Is%20SSRF%3F,to%20read%20data%20from%20URLs)
+
 ### Credits
 **I would like to express my gratitude to the following individuals and organizations for their significant contributions to this project:**
 
@@ -123,3 +138,6 @@ OWASP21 - PG is designed for web application security testing and educational pu
 
 ## License
 OWASP21 - PG is licensed under the [MIT License](LICENSE).
+
+<hr>
+I have put in my best effort to create these labs, and I would appreciate your input to further enhance them. Your valuable knowledge and insights would be invaluable in enriching the labs. <b>Thank you in advance for your assistance.</b>
