@@ -9,6 +9,9 @@ OWASP21-PG (OWASP Top 10 for 2021 Practice Ground) is a practical lab designed t
 ## Table of Contents
 - [Features](#features)
 - [Installation](#installation)
+  - [Linux](#installation-on-linux)
+    - [Auto Installation](#auto-installation-debianubuntu)
+    - [Manual Installation](#manual-installation)
   - [Installing From Sources](#installing-from-sources)
   - [Installing using Docker Image](#installing-using-docker-image)
 - [Lab Overview](#lab-overview)
@@ -36,6 +39,86 @@ OWASP21-PG (OWASP Top 10 for 2021 Practice Ground) is a practical lab designed t
 - Easy to install with WAMP or XAMPP
 
 ## Installation
+### Installation on Linux
+#### Auto Installation (Debian/Ubuntu)
+1. Enter the command to download `install.sh`
+```
+wget https://raw.githubusercontent.com/Hrishikesh7665/OWASP21-PG/main/install.sh
+```
+2. Make `install.sh` executable
+```
+sudo chmod +x install.sh
+```
+3. Run the script
+```
+sudo ./install.sh
+```
+4. Installation Complete🎉🎉
+5. `Optional` Import <b>owasp21PG.crt</b> to your browser
+
+#### Manual Installation
+1. Install Dependencies
+```
+sudo apt install -y net-tools git nano openssl apache2 php python3
+```
+- <b>Or</b> Equivalent command according to your distro
+2. Clone the repository to your local machine using the following command:
+```
+git clone https://github.com/Hrishikesh7665/OWASP21-PG.git
+```
+3. Navigate to `OWASP21-PG` directory
+```
+cd OWASP21-PG
+```
+4. Check your IP address and replace the <IP> tags with your IP Address and save
+```
+nano ./configs/owasp21PG.conf
+```
+5. Copy all the contains of the `OWASP21-PG` to the `\var\www\html`
+```
+sudo cp -r . /var/www/html
+```
+- NB. Assuming you are in `OWASP21-PG` directory
+6. Change the <b>read/write</b> permission of `\var\www\html` to `www-data` group
+```
+sudo chown -R www-data:www-data /var/www/html
+```
+7. Run the command to allow .htaccess overrides
+```
+sudo sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
+```
+8. Run the command to generate self-signed SSL certificate and key
+```
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout /etc/ssl/private/owasp21PG.key -out /etc/ssl/certs/owasp21PG.crt -subj "/C=IN/ST=West-Bengal/L=Kolkata" && sudo cp /etc/ssl/certs/owasp21PG.crt /var/www/html
+```
+9. Enable SSL module
+```
+sudo a2enmod ssl
+```
+10. Copy previosly edited `owasp21PG.conf` file to `/etc/apache2/sites-available`
+```
+sudo cp ./configs/owasp21PG.conf /etc/apache2/sites-available/
+```
+11. Make `owasp21PG.conf` default site configuration
+```
+sudo a2ensite owasp21PG.conf
+```
+12. Restart Apache service
+```
+sudo service apache2 restart
+```
+- <b>Or</b> Equivalent command according to your distro
+13. Start fake SMTP Server
+```
+python3 /var/www/html/bugs/12PHPMailer_vulnerableComponent/smtp.py
+```
+- <b>Or</b>
+```
+python /var/www/html/bugs/12PHPMailer_vulnerableComponent/smtp.py
+```
+14. Installation Complete🎉🎉
+15. `Optional` Import <b>owasp21PG.crt</b> to your browser
+
 ### Installing From Sources
 1. Clone the repository to your local machine using the following command:
 ```
