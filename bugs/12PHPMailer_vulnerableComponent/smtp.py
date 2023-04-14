@@ -1,21 +1,26 @@
-import asyncore
-import smtpd
+import asyncio
+from aiosmtpd.controller import Controller
 
-class FakeSMTPServer(smtpd.SMTPServer):
-    def __init__(self, localaddr, remoteaddr, **kwargs):
-        super().__init__(localaddr, remoteaddr, **kwargs)
-        self.messages = []
+class MyHandler:
+    async def handle_DATA(self, server, session, envelope):
+        print()
+        print(f'Received message from: {envelope.mail_from}')
+        print(f'Recipient addresses: {envelope.rcpt_tos}')
+        print(f'Message data: {envelope.content.decode()}')
+        print('----------------------------------------------------------------')
+        return '250 Message accepted for delivery'
 
-    def process_message(self, peer, mailfrom, rcpttos, data, **kwargs):
-        self.messages.append(data)
-        print(f'Received message from {mailfrom} to {rcpttos}:')
-        print(data.decode('utf-8'))
-        print('---')
-
-if __name__ == '__main__':
-    print('Starting Fake SMTP Server on localhost:1025...')
-    server = FakeSMTPServer(('localhost', 1025), None)
+async def main():
+    handler = MyHandler()
+    controller = Controller(handler, hostname='127.0.0.1', port=1025)
+    controller.start()
+    print('SMTP server started on localhost port 1025.... Press Ctrl+C to stop.')
     try:
-        asyncore.loop()
+        while True:
+            await asyncio.sleep(1)
     except KeyboardInterrupt:
-        pass
+        print('Stopping SMTP server')
+        controller.stop()
+        print('SMTP Server stopped... Goodbye')
+
+asyncio.run(main())
