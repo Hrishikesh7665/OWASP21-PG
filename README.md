@@ -59,7 +59,7 @@ sudo ./install.sh
 #### Manual Installation
 1. Install Dependencies
 ```
-sudo apt install -y net-tools git nano openssl apache2 php python3
+sudo apt install -y net-tools git nano openssl apache2 php python3 python3-pip
 ```
 - <b>Or</b> Equivalent command according to your distro
 2. Clone the repository to your local machine using the following command:
@@ -108,7 +108,15 @@ sudo a2ensite owasp21PG.conf
 sudo service apache2 restart
 ```
 - <b>Or</b> Equivalent command according to your distro
-13. Start fake SMTP Server
+13. Install aiosmtpd module required for fake SMTP Server
+```
+python3 -m pip install aiosmtpd
+```
+- <b>Or</b>
+```
+python -m pip install aiosmtpd
+```
+14. Start fake SMTP Server
 ```
 python3 /var/www/html/bugs/12PHPMailer_vulnerableComponent/smtp.py
 ```
@@ -116,8 +124,8 @@ python3 /var/www/html/bugs/12PHPMailer_vulnerableComponent/smtp.py
 ```
 python /var/www/html/bugs/12PHPMailer_vulnerableComponent/smtp.py
 ```
-14. Installation Complete🎉🎉
-15. `Optional` Import <b>owasp21PG.crt</b> to your browser
+15. Installation Complete🎉🎉
+16. `Optional` Import <b>owasp21PG.crt</b> to your browser
 
 ### Installing From Sources
 1. Clone the repository to your local machine using the following command:
