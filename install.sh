@@ -40,8 +40,8 @@ echo -e "${GREEN}Updating package lists...${NC}"
 sudo apt update
 
 # Install required packages
-echo -e "${GREEN}Installing net-tools, git, nano, openssl, apache2, php, and python3...${NC}"
-sudo apt install -y net-tools git nano openssl apache2 php python3
+echo -e "${GREEN}Installing net-tools, git, nano, openssl, apache2, php, python3 and python3-pip...${NC}"
+sudo apt install -y net-tools git nano openssl apache2 php python3 python3-pip
 
 # Clone GitHub repository
 echo -e "${GREEN}Cloning GitHub repository...${NC}"
@@ -104,9 +104,13 @@ echo -e ${NC}
 # Check if python3 is available
 echo -e "${GREEN}Checking python version...${NC}"
 if command -v python3 > /dev/null 2>&1; then
-    echo "${GREEN}Python3 found... Starting fake SMTP Server${NC}"
+    echo "${GREEN}Python3 found... Installing aiosmtpd${NC}"
+    python3 -m pip install aiosmtpd
+    echo "${GREEN}Starting fake SMTP Server${NC}"
     python3 /var/www/html/bugs/12PHPMailer_vulnerableComponent/smtp.py
 elif command -v python > /dev/null 2>&1; then
-    echo "${GREEN}Python found... Starting fake SMTP Server${NC}"
+    echo "${GREEN}Python found... Installing aiosmtpd${NC}"
+    python -m pip install aiosmtpd
+    echo "${GREEN}Starting fake SMTP Server${NC}"
     python /var/www/html/bugs/12PHPMailer_vulnerableComponent/smtp.py
 fi
