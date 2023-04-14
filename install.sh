@@ -74,6 +74,7 @@ sudo a2enmod ssl
 echo -e "${GREEN}Generating SSL certificate...${NC}"
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout /etc/ssl/private/owasp21PG.key -out /etc/ssl/certs/owasp21PG.crt -subj "/C=IN/ST=West-Bengal/L=Kolkata"
 sudo cp /etc/ssl/certs/owasp21PG.crt .
+sudo cp /etc/ssl/certs/owasp21PG.crt /var/www/html
 
 # Configureing SSL
 echo -e "${GREEN}Configuring SSL...${NC}"
@@ -95,7 +96,10 @@ sudo service apache2 restart
 # complete 
 echo -e "${GREEN}Installation and configuration completed successfully!${NC}"
 
-echo -e "${BLUE}If you want you can use import owasp21PG.crt to your browser!${NC}"
+echo -e "${BLUE}If you want you can use owasp21PG.crt to your browser visit https://${IP_ADDRESS}/owasp21PG.crt to download certificate ${NC}"
+echo -e ${NC}
+echo -e "${BLUE}OWASP21-PG up and running on https://${IP_ADDRESS}${NC}"
+echo -e ${NC}
 
 # Check if python3 is available
 echo -e "${GREEN}Checking python version...${NC}"
