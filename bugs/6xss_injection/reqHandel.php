@@ -1,8 +1,4 @@
 <?php
-if ( $_SERVER['REQUEST_METHOD']=='GET' && realpath(__FILE__) == realpath( $_SERVER['SCRIPT_FILENAME'] ) ) {
-    header('Location: index.php');
-    die ();
-}
 if (isset($_GET["title"])) {
     $movies = array("WATCHES", "BAGS", "SHOES", "PURSE", "SHIRT");
     $title = $_GET["title"];
